@@ -1,5 +1,6 @@
 #include "addressbook.hpp"
 #include<fstream>
+#include<algorithm>
 using namespace addressbook;
 Addressbook::Addressbook(std::string path)
 {
@@ -139,4 +140,24 @@ void Addressbook::deleteEntry(std::vector<Entity*>::iterator it)
 	{
 		std::cerr<<"Couldn't delete the entry\n";
 	}
+}
+void Addressbook::deleteAddressbook()
+{
+	remove((database+filename).c_str());
+}
+void Addressbook::sortByLname()
+{
+	std::sort(list.begin(), list.end(), comparelname);
+}
+void Addressbook::sortByZip()
+{
+	std::sort(list.begin(), list.end(), comparezip);
+}
+bool Addressbook::comparelname(Entity* p1, Entity* p2)
+{
+	return (p1->putlname() < p2->putlname());
+}
+bool Addressbook::comparezip(Entity* p1, Entity* p2)
+{
+	return (p1->putzip() < p2->putzip());
 }

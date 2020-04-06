@@ -23,10 +23,11 @@ namespace addressbook
 		void show();
 		std::vector<Entity*>::iterator find(std::string, std::string, std::string, std::string, std::string, std::string);
 		void deleteEntry(std::vector<Entity*>::iterator);
-		/*void deleteAddressbook();
+		void deleteAddressbook();
 		void sortByLname();
 		void sortByZip();
-		~Addressbook();*/
+		static bool comparelname(Entity*, Entity*);
+		static bool comparezip(Entity*, Entity*);
 	};
 }
 #endif
