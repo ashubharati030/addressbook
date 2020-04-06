@@ -7,11 +7,12 @@
 #include<utility>
 namespace addressbook
 {
-	class _ADDRESSBOOK_
+	class Addressbook
 	{
 	private:
-		std::vector<std::pair<uint, Entity>> list;
-		std::string fname;
+		std::vector<Entity*> list;
+		std::string filename;
+		const std::string database = "database/";
 	public:
 		Addressbook(){}
 		Addressbook(std::string);
@@ -20,13 +21,12 @@ namespace addressbook
 		void savetoDatabase();
 		void savetoDatabase(std::string);
 		void show();
-		void find(std::string, std::string, std::string, std::string, std::string, std::string);
-		std::vector<std::pair<uint, Entity>>::iterator find(uint);
-		void delete(std::vector<std::pair<uint, Entity>>::iterator);
-		void deleteAddressbook();
+		std::vector<Entity*>::iterator find(std::string, std::string, std::string, std::string, std::string, std::string);
+		void deleteEntry(std::vector<Entity*>::iterator);
+		/*void deleteAddressbook();
 		void sortByLname();
 		void sortByZip();
-		~Addressbook();
+		~Addressbook();*/
 	};
 }
 #endif

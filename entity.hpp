@@ -23,6 +23,12 @@ namespace addressbook
 			void getzip(std::string);
 			void getphone(std::string);
 			void getemail(std::string);
+			std::string putfname(){return fname;}
+			std::string putlname(){return lname;}
+			std::string putaddr(){return addr;}
+			std::string putzip(){return zip;}
+			std::string putphone(){return phone;}
+			std::string putemail(){return email;}
 			void getdetails();
 			static bool check_dig(std::string);
 			static bool check_mail(std::string);
